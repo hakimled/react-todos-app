@@ -1,0 +1,120 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #222;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --danger: #ef4444;
+  --ring: #93c5fd;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 720px;
+  margin: 48px auto;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+}
+.filters select, .filters input {
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+}
+.filters input:focus, .task-form input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(147,197,253,.35);
+}
+
+.task-form {
+  display: flex;
+  gap: 8px;
+}
+.task-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+.task-form button {
+  padding: 10px 14px;
+  background: var(--primary);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.task-form button[disabled] { opacity: .7; cursor: not-allowed; }
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #eef2f7;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: #fbfdff;
+}
+.todo-item .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.todo-item .done { text-decoration: line-through; color: var(--muted); }
+
+.todo-item .edit-input {
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  min-width: 260px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+.actions button {
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+.actions button.secondary { background: #e5e7eb; }
+.actions button.danger { background: var(--danger); color: #fff; }
+.actions button:hover { opacity: .9; }
+
+.muted { color: var(--muted); }
+.error { color: var(--danger); font-weight: 600; }
